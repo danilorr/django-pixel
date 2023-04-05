@@ -1,9 +1,9 @@
 services:
   - type: web
-    name: django-pixel
+    name: danilo-blog
     plan: starter
     env: python
-    region: frankfurt  # region should be same as your database region.
+    region: ohio  # region should be same as your database region.
     buildCommand: "./build.sh"
     startCommand: "gunicorn core.wsgi:application"
     envVars:
