@@ -1,0 +1,145 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+    <main>
+        <!--{% include 'includes/pre-loader.html' %}-->
+
+        <!-- Hero -->
+        <section class="section-header bg-secondary text-white">
+            <div class="container">
+               <div class="row justify-content-between align-items-center">
+                  <div class="col-12 col-md-7 col-lg-8 text-center text-md-left mb-n5">
+                        <h1 class="display-2 mb-4">Rent Price Calculator</h1>
+                        <p class="lead mb-4 text-muted">This page contains the Calculator to Rent Prices in the city of São Paulo - BR created using Machine Learning.</p>
+                        <p class="lead mb-4 text-muted">If you are curious to see how i built this calculator, check my project on <a href="https://www.kaggle.com/code/danilorosmaninho/predicting-rent-prices-in-s-o-paulo" target="_blank" rel="noopener noreferrer">Kaggle</a>. Or, if you prefer, on <a href="https://github.com/danilorr/apartment-predicton" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
+                    </div>
+               </div>
+            </div>
+        </section>
+        <!-- End of Hero section -->
+        <!-- Section -->
+        <section class="section section-md mb-n6">
+            <!-- Form -->
+            <form method="post" enctype="multipart/form-data">
+                <div class="container">
+                    <div class="row mb-4 mb-lg-5">
+                        <!-- Title -->
+                        <div class="row">
+                            <div class="col">
+                                <h2 class="h5">Choose the Apartment Characteristics</h2>
+                            </div>
+                        </div>
+                        <!-- End of Title -->
+                        <div class="col-lg-5 col-sm-6 py-4">
+                            <div class="mb-4">
+                                <label class="my-1 me-2" for="inlineFormCustomSelectPref">District</label>
+                                <select class="form-select" name="district" id="inlineFormCustomSelectPref" aria-label="Default select example">
+                                    <option selected>Choose a District</option>
+                                    <option value="29">Other</option>
+                                    <option value="0">Aclimação</option>
+                                    <option value="1">Barra Funda</option>
+                                    <option value="2">Bela Vista</option>
+                                    <option value="4">Brás</option>
+                                    <option value="3">Brooklin</option>
+                                    <option value="5">Butantã</option>
+                                    <option value="6">Cambuci</option>
+                                    <option value="7">Campo Belo</option>
+                                    <option value="8">Centro</option>
+                                    <option value="9">Cerqueira César</option>
+                                    <option value="10">Chácara Santo Antônio</option>
+                                    <option value="11">Cidade Monções</option>
+                                    <option value="12">Consolação</option>
+                                    <option value="13">Higienópolis</option>
+                                    <option value="14">Indianópolis</option>
+                                    <option value="15">Ipiranga</option>
+                                    <option value="16">Itaim Bibi</option>
+                                    <option value="17">Jabaquara</option>
+                                    <option value="18">Jaguaré</option>
+                                    <option value="19">Jardim América</option>
+                                    <option value="20">Jardim Marajoara</option>
+                                    <option value="21">Jardim Paulista</option>
+                                    <option value="22">Jardins</option>
+                                    <option value="23">Lapa</option>
+                                    <option value="24">Liberdade</option>
+                                    <option value="25">Mirandópolis</option>
+                                    <option value="26">Moema</option>
+                                    <option value="28">Móoca</option>
+                                    <option value="37">Morumbi</option>
+                                    <option value="30">Paraíso</option>
+                                    <option value="31">Perdizes</option>
+                                    <option value="32">Pinheiros</option>
+                                    <option value="33">Pompeia</option>
+                                    <option value="34">República</option>
+                                    <option value="35">Santa Cecília</option>
+                                    <option value="36">Santana</option>
+                                    <option value="37">Santo Amaro</option>
+                                    <option value="38">Saúde</option>
+                                    <option value="39">Tatuapé</option>
+                                    <option value="40">Vila Andrade</option>
+                                    <option value="41">Vila Buarque</option>
+                                    <option value="42">Vila Clementino</option>
+                                    <option value="43">Vila Guarani</option>
+                                    <option value="44">Vila Leopoldina</option>
+                                    <option value="45">Vila Madalena</option>
+                                    <option value="46">Vila Mariana</option>
+                                    <option value="47">Vila Mascote</option>
+                                    <option value="48">Vila Nova Conceição</option>
+                                    <option value="49">Vila Olímpia</option>
+                                    <option value="50">Vila Prudente</option>
+                                </select>
+                                <small id="districtHelp" class="form-text text-gray">If you don't find your district, choose Other.</small>
+                            </div>
+                            <div class="mb-4">
+                                <label for="numberBedroom">Number of Bedrooms</label>
+                                <input class="form-control" name="bed" id="bed">
+                            </div>
+                            <div class="mb-4">
+                                <label for="numberCar">Number of Cars in the Garage</label>
+                                <input class="form-control" name="car" id="car">
+                                <small id="carHelp" class="form-text text-gray">If there's no garage, input 0.</small>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 col-sm-6 py-4">
+                            <div class="mb-4">
+                                <label for="exampleInputEmail6">Apartment Area</label>
+                                <input class="form-control" name="area" id="area">
+                                <small id="areaHelp" class="form-text text-gray">Input only numbers. (in m²)</small>
+                            </div>
+                            <div class="mb-4">
+                                <label for="numberBathroom">Number of Bathrooms</label>
+                                <input class="form-control" name="bath" id="bath">
+                            </div>
+                            <div class="mb-4">
+                                <label for="condominiumFee">Condominium Fee</label>
+                                <input class="form-control" name="cond" id="cond">
+                                <small id="condHelp" class="form-text text-gray">Input only numbers. (in R$)</small>
+                            </div>
+                        </div>
+                        <div class="row mb-4 mb-lg-5">
+                            <div class="row">
+                                <div class="col">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-primary btn-lg">Calculate</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <!-- End of Form -->
+            <div class="container">
+                <div class="row mb-4 mb-lg-5">
+                    {% if result %}
+                        <h2 class="h5">The estimated Rent Value for your Apartment is: <b>R$ {{result}}</b></h2>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="container">
+                <div class="row mb-4 mb-lg-5 py-5">
+                </div>
+            </div>
+        </section>
+        <!-- End of section -->
+    </main>
+{% endblock content %}
