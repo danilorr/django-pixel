@@ -20,6 +20,13 @@
         <!-- End of Hero section -->
         <!-- Section -->
         <section class="section section-md mb-n6">
+            {% if result %}
+            <div class="container">
+                <div class="row mb-4 mb-lg-5">
+                        <h2 class="h4">The estimated Rent Value for your Apartment is: <b>R$ {{result}}</b></h2>
+                </div>
+            </div>
+            {% endif %}
             <!-- Form -->
             <form method="post" enctype="multipart/form-data">
                 <div class="container">
@@ -31,7 +38,7 @@
                             </div>
                         </div>
                         <!-- End of Title -->
-                        <div class="col-lg-5 col-sm-6 py-4">
+                        <div class="col-lg-7 col-sm-6 py-4">
                             <div class="mb-4">
                                 <label class="my-1 me-2" for="inlineFormCustomSelectPref">District</label>
                                 <select class="form-select" name="district" id="inlineFormCustomSelectPref" aria-label="Default select example">
@@ -91,24 +98,22 @@
                                 <small id="districtHelp" class="form-text text-gray">If you don't find your district, choose Other.</small>
                             </div>
                             <div class="mb-4">
-                                <label for="numberBedroom">Number of Bedrooms</label>
-                                <input class="form-control" name="bed" id="bed">
-                            </div>
-                            <div class="mb-4">
-                                <label for="numberCar">Number of Cars in the Garage</label>
-                                <input class="form-control" name="car" id="car">
-                                <small id="carHelp" class="form-text text-gray">If there's no garage, input 0.</small>
-                            </div>
-                        </div>
-                        <div class="col-lg-5 col-sm-6 py-4">
-                            <div class="mb-4">
                                 <label for="exampleInputEmail6">Apartment Area</label>
                                 <input class="form-control" name="area" id="area">
                                 <small id="areaHelp" class="form-text text-gray">Input only numbers. (in m²)</small>
                             </div>
                             <div class="mb-4">
+                                <label for="numberBedroom">Number of Bedrooms</label>
+                                <input class="form-control" name="bed" id="bed">
+                            </div>
+                            <div class="mb-4">
                                 <label for="numberBathroom">Number of Bathrooms</label>
                                 <input class="form-control" name="bath" id="bath">
+                            </div>
+                            <div class="mb-4">
+                                <label for="numberCar">Number of Cars in the Garage</label>
+                                <input class="form-control" name="car" id="car">
+                                <small id="carHelp" class="form-text text-gray">If there's no garage, input 0.</small>
                             </div>
                             <div class="mb-4">
                                 <label for="condominiumFee">Condominium Fee</label>
@@ -128,17 +133,6 @@
                 </div>
             </form>
             <!-- End of Form -->
-            <div class="container">
-                <div class="row mb-4 mb-lg-5">
-                    {% if result %}
-                        <h2 class="h5">The estimated Rent Value for your Apartment is: <b>R$ {{result}}</b></h2>
-                    {% endif %}
-                </div>
-            </div>
-            <div class="container">
-                <div class="row mb-4 mb-lg-5 py-5">
-                </div>
-            </div>
         </section>
         <!-- End of section -->
     </main>
